@@ -1,0 +1,5 @@
+package ehtp.medkh.dao;
+
+public interface CompanyRepository {
+
+}

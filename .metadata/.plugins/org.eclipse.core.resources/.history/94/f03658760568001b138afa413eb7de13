@@ -1,0 +1,28 @@
+package ehtp.medkh;
+
+import java.util.stream.Stream;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import ehtp.medkh.dao.CompanyRepository;
+import ehtp.medkh.entities.company;
+
+@SpringBootApplication
+public class CompanyServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CompanyServiceApplication.class, args);
+	}
+	@Bean
+	CommandLineRunner start(CompanyRepository repos) {
+		return arg->{
+			Stream.of("Company A","Company B","Company C").forEach(elem->{
+				repos.save(new company((Long) null, elem, 100+ Math.random()*900));
+			});
+		};
+	}
+
+}
